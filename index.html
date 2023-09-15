@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulário de Previsão</title>
+</head>
+<body>
+    <h1>Formulário de Previsão</h1>
+    <form method="post" action="http://127.0.0.1:5000/predict">
+        <!-- Campo Idade -->
+        <label for="idade">Idade:</label>
+        <input type="text" id="idade" name="idade"><br><br>
+
+        <!-- Campo Sexo -->
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo">
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select><br><br>
+
+        <!-- Campo Dependentes -->
+        <label for="dependentes">Dependentes:</label>
+        <input type="text" id="dependentes" name="dependentes"><br><br>
+
+        <!-- Adicione outros campos conforme necessário -->
+
+        <!-- Botão Enviar -->
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
+
+
+
+
