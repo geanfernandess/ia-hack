@@ -12,7 +12,7 @@ from sklearn.pipeline import Pipeline
 app = Flask(__name__)
 
 # PAGINAS HTML
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
@@ -157,4 +157,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8163)
+    app.run(debug=True)
