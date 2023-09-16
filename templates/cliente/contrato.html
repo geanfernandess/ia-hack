@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+{% extends 'cliente/base.html' %}
+
+{% block content %}
+<div style="padding: 20px;align-items: center;width: 1000px">
+
+    <!-- <div class="payment-container">
+        <button class="payment-Btn">Credor</button>
+        <div class="payment-container-text" id="div-Credor">
+            <span>
+                CREDOR: ______________, ______________, ___________, ______________, portador da cédula de identidade R. G. Nº ________________ – SSP/SP e CPF/MF nº ________________, residente e domiciliado na Rua _________, nº __________ – Parque _____________ – ____________ – CEP. ______________ / SP.
+            </span>
+        </div>
+    </div>
+    <div class="payment-container">
+        <button class="payment-Btn">Devedores</button>
+        <div class="payment-container-text" id="div-Devedor">
+            <span>
+                DEVEDORES: _______________, ___________, __________, _______________, portadora da cédula de identidade R. G. Nº _________________ – SSP/SP e CPF/MF nº _______________, residente e domiciliada na Rua ___________, nº _________ – apto. _______-___ – Vila ________– ________________ – CEP. _________________ / SP, e __________________, __________, estado civil e profissão desconhecidos, portadora da cédula de identidade ____________ e CPF/MF nº _________________, residente e domiciliada na _____________, nº _________ – ___________ – ____________ – CEP. _________________ / SP.
+            </span>
+        </div>
+    </div>
+    <div class="payment-container">
+        <button class="payment-Btn">1 - CLÁUSULA PRIMEIRA – Do valor</button>
+        <div class="payment-container-text" id="div-1-clausula">
+            <span>
+                Ressalvadas quaisquer outras obrigações aqui não incluídas, pelo presente instrumento e na melhor forma de direito, os DEVEDORAS confessam dever ao CREDOR a quantia líquida, certa e exigível no valor de R$ ___________ (_____________).
+            </span>
+        </div>
+    </div>
+    <div class="payment-container">
+        <button class="payment-Btn">2 - CLÁUSULA SEGUNDA – Do pagamento</button>
+        <div class="payment-container-text" id="div-2-clausula">
+            <span>
+                2.1 – Reconhecendo como boa a origem da dívida, as DEVEDORAS, comprometem-se a pagar na seguinte conformidade:
+
+                2.1.1 – R$ ___________ (_________) a serem pagos pela senhora __________, em uma única parcela, no ato da assinatura do presente instrumento de confissão de dívida.
+
+                2.1.2 – R$ ___________ (____________) a serem pagos pela senhora _______________, até o dia 31/12/2016.
+            </span>
+        </div>
+    </div> -->
+
+    <section class="payment-form dark">
+        <div class="container" style="width: 800px;">
+          <div class="block-heading">
+            <h2>Contrato</h2>
+          </div>
+          <form>
+            <div class="products">
+              <!-- <h3 class="title">Credor</h3> -->
+              <div class="item">
+                  <p class="item-name">Credor</p>
+                <span>
+                    ______________, ______________, ___________, ______________, portador da cédula de identidade R. G. Nº ________________ – SSP/SP e CPF/MF nº ________________, residente e domiciliado na Rua _________, nº __________ – Parque _____________ – ____________ – CEP. ______________ / SP.
+                </span>
+              </div>
+
+              <div class="item">
+                <div class="total">Devedores<span class="price">{{valor}}</span></div>
+                  <!-- <p class="item-name">Devedores</p> -->
+                <span>
+                    _______________, ___________, __________, _______________, portadora da cédula de identidade R. G. Nº _________________ – SSP/SP e CPF/MF nº _______________, residente e domiciliada na Rua ___________, nº _________ – apto. _______-___ – Vila ________– ________________ – CEP. _________________ / SP, e __________________, __________, estado civil e profissão desconhecidos, portadora da cédula de identidade ____________ e CPF/MF nº _________________, residente e domiciliada na _____________, nº _________ – ___________ – ____________ – CEP. _________________ / SP.
+                </span>
+              </div>
+
+            <div>
+                Pelo presente instrumento particular e na melhor forma de direito, confessam e assumem como líquida e certa a dívida a seguir descrita:
+            </div>
+
+              <div class="item">
+                <div class="total">CLÁUSULA PRIMEIRA – Do valor<span class="price">{{valor}}</span></div>
+                <br>
+                  <!-- <p class="item-name">Devedores</p> -->
+                <span>
+                    Ressalvadas quaisquer outras obrigações aqui não incluídas, pelo presente instrumento e na melhor forma de direito, os DEVEDORAS confessam dever ao CREDOR a quantia líquida, certa e exigível no valor de R$ ___________ (_____________).
+                </span>
+              </div>
+
+              <div class="item">
+                <div class="total">CLÁUSULA SEGUNDA – Do pagamento<span class="price">{{valor}}</span></div>
+                <br>
+                <span>
+                    <span style="font-weight: bold;">2.1</span>  - Reconhecendo como boa a origem da dívida, as DEVEDORAS, comprometem-se a pagar na seguinte conformidade:
+                </span>
+                <br><br>
+                <span>
+                    <span style="font-weight: bold;">2.1.2</span> - R$ ___________ (_________) a serem pagos pela senhora __________, em uma única parcela, no ato da assinatura do presente instrumento de confissão de dívida.
+                </span>
+                <br>
+                <span>
+                    Parágrafo Único: O não pagamento de qualquer parcela na data aprazada, importará no vencimento integral e antecipado do débito, sujeitando as DEVEDORAS, além da execução do presente instrumento, ao pagamento do valor integral do débito, sobre o qual incidirá a aplicação de multa de 10%, juros de mora de 1% ao mês e correção monetária e mais custas processuais e honorários advocatícios na base de 20% sobre o valor total do débito.
+                </span>
+              </div>
+
+              <div class="item">
+                <div class="total">CLÁUSULA TERCEIRA – Da exigibilidade da dívida<span class="price">{{valor}}</span></div>
+                <br>
+                <span>
+                    <span style="font-weight: bold;">3.1</span> - A DÍVIDA ora reconhecida e assumida pelas DEVEDORAS como líquida, certa e exigível, no valor acima mencionado, aplica-se o disposto no artigo 784, III, do Código de Processo Civil Brasileiro, haja vista o caráter de título executivo extrajudicial do presente instrumento de confissão de dívida.
+                </span>
+              </div>
+              <div>
+                Parágrafo único: A eventual tolerância à infringência de qualquer das cláusulas deste instrumento ou o não exercício de qualquer direito nele previsto constituirá mera liberalidade do CREDOR, não implicando em novação ou transação de qualquer espécie.
+              </div>
+
+              <div class="item">
+                <div class="total">CLÁUSULA QUINTA – do Foro<span class="price">{{valor}}</span></div>
+                <br>
+                <span>
+                    Para dirimir qualquer dúvida oriunda deste instrumento fica eleito o Foro da Comarca de ________________, com exclusão de qualquer outro por mais privilegiado que seja.
+                </span>
+              </div>
+
+              <div>
+                Isto posto, firma este instrumento em 3 (três) vias de igual teor, na presença de duas testemunhas.
+              </div>
+
+              <div>
+                Credor
+                _________________
+                Nome: 
+                CPF: 
+              </div>
+              
+
+            </div>
+
+            <div class="card-details">
+              <h3 class="title">Credit Card Details</h3>
+              <div class="row">
+                <div class="form-group col-sm-7">
+                  <label for="card-holder">Card Holder</label>
+                  <input id="card-holder" type="text" class="form-control" placeholder="Card Holder" aria-label="Card Holder" aria-describedby="basic-addon1">
+                </div>
+                <div class="form-group col-sm-5">
+                  <label for="">Expiration Date</label>
+                  <div class="input-group expiration-date">
+                    <input type="text" class="form-control" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1">
+                    <span class="date-separator">/</span>
+                    <input type="text" class="form-control" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <div class="form-group col-sm-8">
+                  <label for="card-number">Card Number</label>
+                  <input id="card-number" type="text" class="form-control" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1">
+                </div>
+                <div class="form-group col-sm-4">
+                  <label for="cvc">CVC</label>
+                  <input id="cvc" type="text" class="form-control" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1">
+                </div>
+                <div class="form-group col-sm-12">
+                  <a href="{{ url_for('contract') }}" class="btn btn-primary">Go to Target Page</a>
+                  <!-- <button type="button" class="btn btn-primary btn-block">Proceed</button> -->
+                </div>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    <div class="payment-container">
+        <span>Credor</span>
+        <div class="payment-container-text">
+            Nome
+        </div>
+        <input class="payment-container-input" type="input" />
+        <div class="payment-container-text">
+            cédula de identidade R. G.
+        </div>
+        <input class="payment-container-input" type="input" />
+        <div class="payment-container-text">
+            CPF/MF nº
+        </div>
+        <input class="payment-container-input" type="input" />
+        <tr>
+            <td>
+                <div class="payment-container-text">
+                    CPF/MF nº
+                </div>
+                <input class="payment-container-input" type="input" />
+            </td>
+            <td style="width: 300px;">
+                <div class="payment-container-text">
+                    CPF/MF nº
+                </div>
+                <input class="payment-container-input" type="input"/>
+            </td>
+        </tr>
+    </div>
+</div>
+{% endblock %}
+
+
+{%block scripts%} 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.payment-container-text').addClass("hidden");
+
+		$('.payment-container-text').click(function() {
+			var $this = $(this);
+
+			if ($this.hasClass("hidden")) {
+				$(this).removeClass("hidden").addClass("visible");
+
+			} else {
+				$(this).removeClass("visible").addClass("hidden");
+			}
+		});
+	});
+</script>
+{%endblock%}

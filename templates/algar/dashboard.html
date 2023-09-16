@@ -19,15 +19,15 @@
                         <div class="nav">
                             <img class="img-profile rounded-circle mx-auto" src="./assets/img/">
                             <div class="sb-sidenav-menu-heading mx-auto">Informações Cliente</div>
-                            <a class="nav-link" href="http://127.0.0.1:5000/dashboard">
+                            <a class="nav-link" href="{{ url_for('dashboard') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="http://127.0.0.1:5000/table">
+                            <a class="nav-link" href="{{ url_for('table') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Pendentes
                             </a>
-                            <a class="nav-link" href="http://127.0.0.1:5000/analytics">
+                            <a class="nav-link" href="{{ url_for('analytics') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Analytics
                             </a>

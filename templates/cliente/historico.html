@@ -19,17 +19,13 @@
                         <div class="nav">
                             <img class="img-profile rounded-circle mx-auto" src="./assets/img/">
                             <div class="sb-sidenav-menu-heading mx-auto">Informações Cliente</div>
-                            <a class="nav-link" href="{{ url_for('dashboard') }}">
+                            <a class="nav-link" href="{{ url_for('dividas') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Dashboard
+                                Dividas
                             </a>
-                            <a class="nav-link" href="{{ url_for('table') }}">
+                            <a class="nav-link" href="{{ url_for('historico') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Pendentes
-                            </a>
-                            <a class="nav-link" href="{{ url_for('analytics') }}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Analytics
+                                Histórico de Negociações
                             </a>
                         </div>
                     </div>
@@ -38,7 +34,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <!-- <h1 class="mt-4">Aceites Pendentes</h1> -->
+                        <h5 class="mt-4 pb-4">Seja bem vindo {{ data[0]['Nome'] }}</h5>
                         
                         <div class="card mb-4">
                             <div class="card-header">
@@ -49,7 +45,6 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Nome</th>
                                             <th>N° Contrato</th>
                                             <th>Valor</th>
                                             <th>Data</th>
@@ -58,7 +53,6 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Nome</th>
                                             <th>N° Contrato</th>
                                             <th>Valor</th>
                                             <th>Data</th>
@@ -68,7 +62,6 @@
                                     <tbody>
                                         {% for item in data %}
                                         <tr>
-                                            <td>{{ item['Nome'] }}</td>
                                             <td>{{ item['N° Contrato'] }}</td>
                                             <td>{{ item['Valor'] }}</td>
                                             <td>{{ item['Data'] }}</td>

@@ -11,45 +11,64 @@ from sklearn.pipeline import Pipeline
 
 app = Flask(__name__)
 
-# PAGINAS HTML
-@app.route('/index', methods=['GET'])
-def index():
-    return render_template('index.html')
+# Alailton
+@app.route('/negociar', methods=['GET'])
+def negociar():
+    nCont = request.args.get('contrato')
+    if nCont:
+        data = pd.read_csv('./database/dividas_negociar.csv', index_col=None).to_dict(orient='records')
+        for d in data:
+            if d['N° Contrato'] == int(nCont):
+                return render_template('cliente/negociar.html', nContrato=str(d['N° Contrato']), natureza = 'Pendente', periodo=str(d['Data']), valor = str(d['Valor']))
 
+@app.route('/contrato', methods=['GET'])
+def contract():
+    return render_template('cliente/contrato.html')
+
+# PAGINAS HTML
+
+# ALGAR
 @app.route('/dashboard', methods=['GET'])
 def dashboard():
     return render_template('algar/dashboard.html')
 
-@app.route('/analytics', methods=['GET'])
-def analytics():
-    # Carregue o arquivo CSV em um DataFrame
-    file_path = './database/base_clientes.csv'
-    data = pd.read_csv(file_path, index_col=None)
-
-    # Deleta a coluna bom pagador
-    data = data.drop('default', axis=1)
-
-    # Seleciona apenas as primeiras linhas
-    data = data.head(246)
-
-    # Converte em um json
-    data_dict = data.to_dict(orient='records')
-    return render_template('algar/analytics.html', data=data_dict)
-
 @app.route('/table', methods=['GET'])
 def table():
-    # Carregue o arquivo CSV em um DataFrame
-    file_path = './database/contratos_pendentes.csv'
+    file_path = './database/dividas_negociar.csv'
     data = pd.read_csv(file_path, index_col=None)
-
-    # Converte em um json
     data_dict = data.to_dict(orient='records')
     return render_template('algar/table.html', data=data_dict)
 
+@app.route('/analytics', methods=['GET'])
+def analytics():
+    file_path = './database/base_clientes.csv'
+    data = pd.read_csv(file_path, index_col=None)
+    data = data.drop('default', axis=1)
+    data = data.head(246)
+    data_dict = data.to_dict(orient='records')
+    return render_template('algar/analytics.html', data=data_dict)
 
 
+# CLIENTE
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
 
 
+@app.route('/dividas', methods=['POST'])
+def dividas():
+    cpf = request.form.get('cpf', '')
+    cpf  = cpf.replace(".", "").replace("-", "")
+    cpf  = int(cpf)
+    file_path = './database/dividas_negociar.csv'
+    data = pd.read_csv(file_path, index_col=None)
+    dados_filtrados = data[data['cpf'] == cpf]
+    data_dict = dados_filtrados.to_dict(orient='records')
+    return render_template('cliente/dividas.html', data=data_dict)
+
+@app.route('/historico', methods=['GET'])
+def historico():
+    return render_template('historico.html')
 
 # MACHINE LEARNING
 def update(id, new_prediction):
@@ -66,8 +85,6 @@ def update(id, new_prediction):
     # Salva o DataFrame atualizado 
     data.to_csv(file_path, index=False)
     
-
-
 @app.route('/predict', methods=['POST'])
 def predict():
 
@@ -154,7 +171,25 @@ def predict():
     return jsonify(resultado)
 
 
+@app.route('/pagamento/pix', methods=['GET'])
+def pagamentoPix():
+    nCont = request.args.get('contrato')
+    if nCont:
+        data = pd.read_csv('./database/dividas_negociar.csv', index_col=None).to_dict(orient='records')
+        for d in data:
+            if d['N° Contrato'] == int(nCont):
+                return render_template('pagamento/pix.html', nContrato=str(d['N° Contrato']), natureza = 'Pendente', periodo=str(d['Data']), valor = str(d['Valor']))
+
+
+@app.route('/pagamento/cartao', methods=['GET'])
+def pagamentoCartao():
+    nCont = request.args.get('contrato')
+    if nCont:
+        data = pd.read_csv('./database/dividas_negociar.csv', index_col=None).to_dict(orient='records')
+        for d in data:
+            if d['N° Contrato'] == int(nCont):
+                return render_template('pagamento/pix.html', nContrato=str(d['N° Contrato']), natureza = 'Pendente', periodo=str(d['Data']), valor = str(d['Valor']))
 
 
 if __name__ == '__main__':
-    app.run(debug=False, port=8163)
+    app.run(debug=True, port=5000)

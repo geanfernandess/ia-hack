@@ -19,17 +19,13 @@
                         <div class="nav">
                             <img class="img-profile rounded-circle mx-auto" src="./assets/img/">
                             <div class="sb-sidenav-menu-heading mx-auto">Informações Cliente</div>
-                            <a class="nav-link" href="{{ url_for('dashboard') }}">
+                            <a class="nav-link" href="{{ url_for('dividas') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Dashboard
+                                Dividas
                             </a>
-                            <a class="nav-link" href="{{ url_for('table') }}">
+                            <a class="nav-link" href="{{ url_for('historico') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Pendentes
-                            </a>
-                            <a class="nav-link" href="{{ url_for('analytics') }}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Analytics
+                                Histórico de Negociações
                             </a>
                         </div>
                     </div>
@@ -38,43 +34,46 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <!-- <h1 class="mt-4">Aceites Pendentes</h1> -->
+                        <h5 class="mt-4 pb-4">Seja bem vindo {% if data %}{{ data[0]['Nome'] }}{% endif %}</h5>
                         
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Aceites Pendentes
+                                Dividas
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Nome</th>
                                             <th>N° Contrato</th>
                                             <th>Valor</th>
                                             <th>Data</th>
+                                            <th>pix</th>
+                                            <th>cartao</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Nome</th>
                                             <th>N° Contrato</th>
                                             <th>Valor</th>
                                             <th>Data</th>
+                                            <th>pix</th>
+                                            <th>cartao</th>
                                             <th></th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         {% for item in data %}
                                         <tr>
-                                            <td>{{ item['Nome'] }}</td>
                                             <td>{{ item['N° Contrato'] }}</td>
                                             <td>{{ item['Valor'] }}</td>
                                             <td>{{ item['Data'] }}</td>
+                                            <td><i class="fas fa-qrcode"></i></td>
+                                            <td><i class="fas fa-credit-card"></i></td>
                                             <td class="text-center">
                                                 <div class="d-flex justify-content-center">
-                                                    <a href="{{ url_for('contrato', contrato=item['N° Contrato']) }}">detalhar contrato</a>
+                                                    <a href="{{ url_for('negociar', contrato=item['N° Contrato']) }}">negociar divida</a>
                                                 </div>
                                             </td>
                                         </tr>
