@@ -21,9 +21,9 @@ id,default,idade,sexo,dependentes,escolaridade,estado_civil,salario_anual,tipo_c
 788658483,0,53,F,2,graduacao,casado,menos que $40K,blue,2650.38,-
 787937058,0,58,M,0,mestrado,casado,$80K - $120K,blue,12555.16,-
 715318008,0,55,F,1,graduacao,solteiro,menos que $40K,blue,3520.61,-
-713962233,0,55,F,3,mestrado,casado,menos que $40K,blue,3035.78,-
+713962233,0,55,F,3,mestrado,casado,menos que $40K,blue,3035.78,0
 785432733,0,42,F,4,ensino medio,casado,menos que $40K,gold,15433.35,-
-827111283,0,45,M,3,mestrado,solteiro,$80K - $120K,blue,32426.29,-
+827111283,0,45,M,3,mestrado,solteiro,$80K - $120K,blue,32426.29,0
 773146383,0,50,F,1,graduacao,solteiro,$40K - $60K,silver,17304.68,-
 778493808,0,49,M,3,ensino medio,casado,$60K - $80K,blue,3906.4,-
 712661433,0,49,M,4,sem educacao formal,solteiro,$80K - $120K,blue,34516.07,-
